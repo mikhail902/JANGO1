@@ -4,12 +4,11 @@
 {% block content %}
 <div class="album py-5 bg-body-tertiary">
     <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="row row-cols-1">
             <!-- Карточка товара -->
                 <div class="col">
                     <div class="card shadow-sm">
                         <img src="{{ products.pic | media_filter }}">
-                        <title>{{ product.name }}</title>
                         <div class="card-body">
                             <h5 class="card-title">{{ products.name }}</h5>
                             <p class="card-text">
@@ -18,6 +17,12 @@
                             <p class="card-text fw-bold">
                                 {{ products.price }}₽
                             </p>
+                                <p class="text-body-secondary">
+                            {{products.created_at|default:"Дата производства отсутствует"}}
+                                </p>
+                                <p class="text-body-secondary">
+                            {{products.updated_at|default:"Дата изменения отсутствует"}}
+                                </p>
                             <div class="d-flex justify-content-between align-items-center">
                             </div>
                         </div>
